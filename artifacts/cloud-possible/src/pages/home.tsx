@@ -122,7 +122,7 @@ export default function Home() {
               {
                 icon: Server,
                 title: "Managed IT Support",
-                desc: "Proactive monitoring, unlimited remote helpdesk, and rapid on-site support to keep your team productive.",
+                desc: "Proactive monitoring and unlimited remote helpdesk to keep your team productive. Most issues resolved the same day, without anyone needing to come in.",
                 color: "bg-blue-50 text-blue-600 border-blue-100"
               },
               {
@@ -320,9 +320,9 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">Why Cloud Possible</h2>
-              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">IT support that actually shows up</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">IT support that's always reachable</h3>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                We built Cloud Possible for small businesses that are tired of waiting days for a callback, dealing with surprise invoices, or feeling like a low priority. You get a local team that knows your setup and treats your business like their own.
+                We built Cloud Possible for small businesses that are tired of waiting days for a callback, dealing with surprise invoices, or feeling like a low priority. You get a dedicated remote team that knows your setup and resolves most issues the same day.
               </p>
               <Link
                 href="/contact"
@@ -338,7 +338,7 @@ export default function Home() {
                 {
                   icon: MapPin,
                   title: "Local Ontario Team",
-                  desc: "We're based right here in Ontario. On-site support within hours, not days. No remote call centres.",
+                  desc: "We're based right here in Ontario. Most issues are fixed remotely the same day. On-site visits available when truly needed.",
                   color: "bg-blue-50 text-blue-600"
                 },
                 {

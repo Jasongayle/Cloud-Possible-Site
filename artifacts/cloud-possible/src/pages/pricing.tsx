@@ -21,8 +21,7 @@ export default function Pricing() {
       missing: [
         "Cloud backup",
         "Proactive remediation",
-        "Dedicated account manager",
-        "On-site visits"
+        "Dedicated account manager"
       ]
     },
     {
@@ -41,8 +40,7 @@ export default function Pricing() {
         "Email spam & phishing protection"
       ],
       missing: [
-        "24/7 After-hours support",
-        "On-site visits included"
+        "24/7 After-hours support"
       ]
     },
     {
@@ -57,7 +55,7 @@ export default function Pricing() {
         "Azure infrastructure management",
         "Advanced compliance support",
         "Unlimited cloud backup",
-        "Monthly on-site visits included",
+        "On-site visits available on request",
         "Dark web monitoring",
         "Employee security training"
       ],
@@ -80,7 +78,7 @@ export default function Pricing() {
     },
     {
       q: "What happens if we need on-site support?",
-      a: "For Starter and Growth plans, on-site support is available at a discounted hourly rate when issues cannot be resolved remotely. The Business plan includes up to two half-day on-site visits per month."
+      a: "Over 90% of issues are resolved remotely, usually within the same business day. When a visit is truly needed, on-site support is available for all plans at a flat hourly rate. We always try remote resolution first."
     }
   ];
 

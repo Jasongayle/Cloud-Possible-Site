@@ -11,7 +11,7 @@ export default function Services() {
       title: "Managed IT Support",
       description: "Comprehensive day-to-day management of your technology infrastructure. We act as your entire IT department for a fraction of the cost of hiring internally.",
       benefits: [
-        "Unlimited remote and on-site helpdesk support",
+        "Unlimited remote helpdesk support (on-site available when needed)",
         "24/7 proactive system monitoring",
         "Hardware and software procurement",
         "Vendor management (we talk to your ISPs and software reps)",

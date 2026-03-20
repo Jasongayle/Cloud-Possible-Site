@@ -176,7 +176,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               {
-                quote: "Before Cloud Possible, we were constantly dealing with slow computers, network drops, and security worries — especially with sensitive student records. Since switching, everything just works. Our staff can focus on the kids, not the tech. Having a local team that can actually show up when needed makes all the difference.",
+                quote: "Our school website is the first impression parents get of us. Cloud Possible took over the management and security of our site completely. We no longer worry about updates, vulnerabilities, or downtime. They handle it quietly in the background so we can stay focused on education.",
                 name: "Humber Land Montessori Academy",
                 role: "School Administration",
                 url: "https://humberlandmontessoriacademy.com/",
@@ -330,7 +330,7 @@ export default function Home() {
                 {
                   icon: MapPin,
                   title: "Local Ontario Team",
-                  desc: "We're based right here in Ontario. On-site support within hours, not days — not a remote call centre.",
+                  desc: "We're based right here in Ontario. On-site support within hours, not days. No remote call centres.",
                   color: "bg-blue-50 text-blue-600"
                 },
                 {
@@ -342,7 +342,7 @@ export default function Home() {
                 {
                   icon: Users,
                   title: "No Long-Term Contracts",
-                  desc: "Month-to-month service. We earn your business every single month — not by locking you in.",
+                  desc: "Month-to-month service. We earn your business every single month, not by locking you in.",
                   color: "bg-sky-50 text-sky-600"
                 },
                 {

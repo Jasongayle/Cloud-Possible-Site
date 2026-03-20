@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { CheckCircle2, HelpCircle, X, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Pricing() {
+  useEffect(() => {
+    document.title = "Pricing Plans | Cloud Possible";
+  }, []);
   const tiers = [
     {
       name: "Starter",

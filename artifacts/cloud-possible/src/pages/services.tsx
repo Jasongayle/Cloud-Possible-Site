@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Server, Cloud, Shield, CheckCircle2, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Services() {
+  useEffect(() => {
+    document.title = "IT Services | Cloud Possible";
+  }, []);
   const services = [
     {
       id: "managed-it",

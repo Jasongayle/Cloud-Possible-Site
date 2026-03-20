@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 
@@ -70,6 +71,10 @@ const sections = [
 ];
 
 export default function Privacy() {
+  useEffect(() => {
+    document.title = "Privacy Policy | Cloud Possible";
+  }, []);
+
   return (
     <Layout>
       <section className="bg-slate-50 pt-16 pb-12 border-b border-border">

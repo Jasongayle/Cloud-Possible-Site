@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Shield, Server, Cloud, ChevronRight, Award, MapPin, Clock, Quote, Users, Zap, Star } from "lucide-react";
 import { Layout } from "@/components/layout";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Cloud Possible | Managed IT Support for Ontario Small Businesses";
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -47,6 +52,9 @@ export default function Home() {
                   Explore Services
                 </Link>
               </div>
+              <p className="text-sm text-muted-foreground mt-2">
+                Starting at <span className="font-semibold text-foreground">$79/device/mo</span> &middot; No long-term contracts
+              </p>
             </motion.div>
 
             <motion.div 

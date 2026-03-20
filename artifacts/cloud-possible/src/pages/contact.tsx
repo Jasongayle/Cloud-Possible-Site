@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
@@ -17,6 +17,10 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function Contact() {
+  useEffect(() => {
+    document.title = "Contact Us | Cloud Possible";
+  }, []);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 

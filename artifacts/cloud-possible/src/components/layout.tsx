@@ -44,7 +44,7 @@ export function Layout({ children }: { children: ReactNode }) {
               <img
                 src={`${import.meta.env.BASE_URL}cloud-possible-logo.png`}
                 alt="Cloud Possible Logo"
-                className="h-10 w-auto group-hover:opacity-90 transition-opacity"
+                className="h-16 w-auto group-hover:opacity-90 transition-opacity"
               />
             </Link>
 

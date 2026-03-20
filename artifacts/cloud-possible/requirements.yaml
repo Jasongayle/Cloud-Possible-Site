@@ -1,0 +1,11 @@
+packages:
+  "framer-motion": "For smooth page transitions and scroll-triggered animations"
+  "react-hook-form": "For managing contact form state"
+  "@hookform/resolvers": "For Zod validation integration with react-hook-form"
+  "zod": "For defining contact form validation schema"
+
+images: []
+
+notes:
+  - Using static frontend approach as requested; no backend API mutations are wired up for the contact form, it will simulate a successful submission.
+  - Using the provided logo at `/cloud-possible-logo.png`.

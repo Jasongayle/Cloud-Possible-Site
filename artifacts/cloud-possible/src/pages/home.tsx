@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Shield, Server, Cloud, ChevronRight, Award, MapPin, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Server, Cloud, ChevronRight, Award, MapPin, Clock, Quote, Users, Zap, Star } from "lucide-react";
 import { Layout } from "@/components/layout";
 
 export default function Home() {
@@ -162,8 +162,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing Preview */}
+      {/* Testimonials */}
       <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">Client Stories</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Trusted by Ontario Businesses</h3>
+            <p className="text-lg text-muted-foreground">
+              Real results for real businesses across Ontario.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                quote: "Before Cloud Possible, we were constantly dealing with slow computers, network drops, and security worries — especially with sensitive student records. Since switching, everything just works. Our staff can focus on the kids, not the tech. Having a local team that can actually show up when needed makes all the difference.",
+                name: "Humber Land Montessori Academy",
+                role: "School Administration",
+                url: "https://humberlandmontessoriacademy.com/",
+                initials: "HM",
+                color: "bg-blue-600"
+              },
+              {
+                quote: "Running a karate studio means I'm always focused on my students, not IT problems. Cloud Possible set up our systems, handles all our backups, and keeps everything secure. When I had an issue with our booking system on a Saturday morning, they had it fixed within the hour. Incredible service.",
+                name: "Caledon Karate",
+                role: "Studio Owner",
+                url: "https://www.caledonkarate.ca/",
+                initials: "CK",
+                color: "bg-sky-600"
+              }
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="bg-slate-50 rounded-2xl p-8 border border-border/50 flex flex-col gap-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, s) => (
+                    <Star key={s} className="h-5 w-5 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <Quote className="h-8 w-8 text-primary/20" />
+                <p className="text-foreground leading-relaxed flex-1">"{t.quote}"</p>
+                <div className="flex items-center gap-4 pt-4 border-t border-border/50">
+                  <div className={`w-12 h-12 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-sm shrink-0`}>
+                    {t.initials}
+                  </div>
+                  <div>
+                    <a href={t.url} target="_blank" rel="noopener noreferrer" className="font-bold text-foreground hover:text-primary transition-colors">
+                      {t.name}
+                    </a>
+                    <p className="text-sm text-muted-foreground">{t.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Preview */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Transparent, Predictable Pricing</h2>
@@ -234,6 +296,77 @@ export default function Home() {
               <Link href="/pricing" className="w-full py-3 px-4 rounded-xl border-2 border-border text-center font-semibold hover:border-primary hover:text-primary transition-colors">
                 View Details
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Cloud Possible */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">Why Cloud Possible</h2>
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">IT support that actually shows up</h3>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                We built Cloud Possible for small businesses that are tired of waiting days for a callback, dealing with surprise invoices, or feeling like a low priority. You get a local team that knows your setup and treats your business like their own.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-primary text-primary-foreground font-semibold px-8 py-4 shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
+              >
+                Book a Free Assessment
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: MapPin,
+                  title: "Local Ontario Team",
+                  desc: "We're based right here in Ontario. On-site support within hours, not days — not a remote call centre.",
+                  color: "bg-blue-50 text-blue-600"
+                },
+                {
+                  icon: CheckCircle2,
+                  title: "Flat Monthly Rate",
+                  desc: "One predictable invoice every month. No hidden fees, no per-ticket charges, no surprises.",
+                  color: "bg-green-50 text-green-600"
+                },
+                {
+                  icon: Users,
+                  title: "No Long-Term Contracts",
+                  desc: "Month-to-month service. We earn your business every single month — not by locking you in.",
+                  color: "bg-sky-50 text-sky-600"
+                },
+                {
+                  icon: Zap,
+                  title: "Proactive, Not Reactive",
+                  desc: "We monitor your systems 24/7 and fix problems before they affect your team or your customers.",
+                  color: "bg-amber-50 text-amber-600"
+                }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="bg-slate-50 rounded-2xl p-6 border border-border/50"
+                >
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${item.color}`}>
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <h4 className="font-bold text-foreground mb-2">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>

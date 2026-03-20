@@ -29,12 +29,28 @@ export default function Contact() {
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = async (_data: FormValues) => {
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
+    setSubmitError(null);
+    try {
+      const response = await fetch("https://formspree.io/f/xwpkvyrj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+      } else {
+        setSubmitError("Something went wrong. Please email us directly at info@cloudpossible.ca.");
+      }
+    } catch {
+      setSubmitError("Could not send your message. Please email info@cloudpossible.ca directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,6 +172,10 @@ export default function Contact() {
                       />
                       {errors.message && <p className="text-sm text-destructive">{errors.message.message}</p>}
                     </div>
+
+                    {submitError && (
+                      <p className="text-sm text-destructive bg-red-50 border border-red-200 rounded-lg px-4 py-3">{submitError}</p>
+                    )}
 
                     <button
                       type="submit"

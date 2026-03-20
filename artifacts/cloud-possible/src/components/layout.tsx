@@ -1,6 +1,6 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ArrowRight, Shield, Cloud, Server, MonitorSmartphone, Mail, MapPin, Phone } from "lucide-react";
+import { Menu, X, ArrowRight, Shield, Cloud, Server, MonitorSmartphone, Mail, MapPin, Phone, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -135,14 +135,14 @@ export function Layout({ children }: { children: ReactNode }) {
                 Reliable IT support, cloud solutions, and security for small businesses in Ontario. We manage your technology so you can manage your business.
               </p>
               <div className="flex items-center gap-4">
+                <a href="https://www.linkedin.com/company/cloud-possible" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label="LinkedIn">
+                  <Linkedin className="h-5 w-5 text-white" />
+                </a>
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <MonitorSmartphone className="h-5 w-5 text-white" />
                 </div>
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
                   <Shield className="h-5 w-5 text-white" />
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  <Cloud className="h-5 w-5 text-white" />
                 </div>
               </div>
             </div>
@@ -173,8 +173,13 @@ export function Layout({ children }: { children: ReactNode }) {
                   <a href="tel:15483840922" className="hover:text-white transition-colors">1 (548) 384-0922</a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary shrink-0" />
-                  <span>Ontario, Canada<br />Serving the GTA and beyond</span>
+                  <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                  <span>
+                    Ontario, Canada<br />
+                    <span className="text-slate-500 text-xs leading-relaxed">
+                      Brampton · Mississauga · Caledon · Georgetown · Oakville · Milton · Kitchener · Guelph · Waterloo
+                    </span>
+                  </span>
                 </li>
               </ul>
             </div>

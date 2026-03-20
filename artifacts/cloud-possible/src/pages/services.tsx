@@ -17,7 +17,7 @@ export default function Services() {
         "Vendor management (we talk to your ISPs and software reps)",
         "Quarterly IT strategy reviews"
       ],
-      image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070&auto=format&fit=crop" // server room technician
+      image: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=2070&auto=format&fit=crop"
     },
     {
       id: "cloud-backup",
@@ -31,7 +31,7 @@ export default function Services() {
         "Disaster recovery planning and testing",
         "Secure remote access / VPN solutions"
       ],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" // abstract cloud tech
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
     },
     {
       id: "security",
@@ -45,7 +45,7 @@ export default function Services() {
         "Employee security awareness training",
         "Compliance support (HIPAA, PIPEDA, SOC2)"
       ],
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" // cybersecurity abstract
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
     }
   ];
 

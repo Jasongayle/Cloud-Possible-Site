@@ -189,15 +189,23 @@ export default function Contact() {
                   Pick a time that works for you. We'll do a 30-minute discovery call to learn about your current setup.
                 </p>
 
-                <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm">
+                {/* Calendly embed slot — replace the div below with your Calendly inline embed script */}
+                <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm min-h-[280px]">
+                  {/*
+                    To activate: paste your Calendly inline embed here, e.g.
+                    <div className="calendly-inline-widget" data-url="https://calendly.com/your-link" style={{minWidth:"320px",height:"630px"}} />
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async />
+                  */}
                   <Calendar className="h-12 w-12 text-primary/80 mb-4" />
-                  <p className="text-slate-300 font-medium mb-6">Interactive Calendar would load here</p>
-                  <a 
-                    href="#" 
-                    onClick={(e) => { e.preventDefault(); alert("In a real environment, this would open Calendly popup or redirect."); }}
+                  <p className="text-slate-300 font-medium mb-2">Schedule directly via Calendly</p>
+                  <p className="text-slate-400 text-sm mb-6">Calendar booking will appear here once your Calendly link is configured.</p>
+                  <a
+                    href="https://calendly.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium transition-colors border border-white/10"
                   >
-                    Click here to book directly
+                    Book directly on Calendly
                   </a>
                 </div>
               </div>

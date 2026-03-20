@@ -24,7 +24,7 @@ export default function Home() {
                 IT Support for Ontario Small Businesses
               </div>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] mb-6 tracking-tight">
-                Reliable IT Support — <br className="hidden lg:block" />
+                Reliable IT Support <br className="hidden lg:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-700">
                   Without the Overhead
                 </span>

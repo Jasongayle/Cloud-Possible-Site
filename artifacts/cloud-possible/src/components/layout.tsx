@@ -186,7 +186,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
           
           <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-            <p>© {new Date().getFullYear()} Cloud Possible. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Cloud Possible — a <span className="text-slate-400">Think Jay Inc</span> company. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

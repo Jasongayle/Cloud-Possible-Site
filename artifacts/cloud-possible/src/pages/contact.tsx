@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle2, Calendar } from "lucide-react";
+import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -76,7 +76,7 @@ export default function Contact() {
                 <div className="bg-slate-50 p-6 rounded-2xl border border-border">
                   <Phone className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-bold text-foreground mb-1">Call Us</h3>
-                  <a href="tel:1-800-555-0199" className="text-muted-foreground hover:text-primary transition-colors">1-800-555-0199</a>
+                  <a href="tel:15483840922" className="text-muted-foreground hover:text-primary transition-colors">1 (548) 384-0922</a>
                 </div>
               </div>
 
@@ -187,37 +187,26 @@ export default function Contact() {
                   Pick a time that works for you. We'll do a 30-minute discovery call to learn about your current setup.
                 </p>
 
-                {/* Calendly embed slot — replace the div below with your Calendly inline embed script */}
-                <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm min-h-[280px]">
-                  {/*
-                    To activate: paste your Calendly inline embed here, e.g.
-                    <div className="calendly-inline-widget" data-url="https://calendly.com/your-link" style={{minWidth:"320px",height:"630px"}} />
-                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async />
-                  */}
-                  <Calendar className="h-12 w-12 text-primary/80 mb-4" />
-                  <p className="text-slate-300 font-medium mb-2">Schedule directly via Calendly</p>
-                  <p className="text-slate-400 text-sm mb-6">Calendar booking will appear here once your Calendly link is configured.</p>
-                  <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-medium transition-colors border border-white/10"
-                  >
-                    Book directly on Calendly
-                  </a>
+                <div className="flex-1 rounded-2xl overflow-hidden min-h-[500px]">
+                  <iframe
+                    src="https://calendly.com/jasongayle-8d-d/30min"
+                    width="100%"
+                    height="100%"
+                    style={{ minHeight: "500px", border: "none" }}
+                    title="Book a Free IT Assessment"
+                  />
                 </div>
               </div>
               
-              {/* Address */}
+              {/* Service Area */}
               <div className="bg-slate-50 p-8 rounded-2xl border border-border flex items-start gap-4">
                 <MapPin className="h-6 w-6 text-primary shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">Headquarters</h3>
+                  <h3 className="font-bold text-foreground mb-2">Service Area</h3>
                   <p className="text-muted-foreground">
-                    123 Innovation Drive<br />
-                    Suite 400<br />
-                    Toronto, ON M5V 1A1<br />
-                    Canada
+                    Ontario, Canada<br />
+                    Serving businesses across the GTA<br />
+                    and surrounding regions
                   </p>
                 </div>
               </div>

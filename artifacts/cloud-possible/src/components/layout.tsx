@@ -170,7 +170,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 </li>
                 <li className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-primary shrink-0" />
-                  <a href="tel:1-800-555-0199" className="hover:text-white transition-colors">1-800-555-0199</a>
+                  <a href="tel:15483840922" className="hover:text-white transition-colors">1 (548) 384-0922</a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary shrink-0" />

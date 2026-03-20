@@ -173,7 +173,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 quote: "Our school website is the first impression parents get of us. Cloud Possible took over the management and security of our site completely. We no longer worry about updates, vulnerabilities, or downtime. They handle it quietly in the background so we can stay focused on education.",
@@ -190,6 +190,14 @@ export default function Home() {
                 url: "https://www.caledonkarate.ca/",
                 initials: "CK",
                 color: "bg-sky-600"
+              },
+              {
+                quote: "When you're building a platform that handles people's personal finances, security is everything. Cloud Possible keeps our infrastructure locked down, our SSL and backups in order, and flags anything suspicious right away. It's one less thing to lose sleep over.",
+                name: "Calmoniq",
+                role: "Canadian Finance Planning Platform",
+                url: "https://calmoniq.com/",
+                initials: "CQ",
+                color: "bg-indigo-600"
               }
             ].map((t, i) => (
               <motion.div

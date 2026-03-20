@@ -1,6 +1,6 @@
 import { ReactNode, useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ArrowRight, Shield, Cloud, Server, MonitorSmartphone, Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { Menu, X, ArrowRight, Shield, Cloud, Server, MonitorSmartphone, Mail, MapPin, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -167,10 +167,6 @@ export function Layout({ children }: { children: ReactNode }) {
                 <li className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-primary shrink-0" />
                   <a href="mailto:info@cloudpossible.ca" className="hover:text-white transition-colors">info@cloudpossible.ca</a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="h-5 w-5 text-primary shrink-0" />
-                  <a href="tel:15483840922" className="hover:text-white transition-colors">1 (548) 384-0922</a>
                 </li>
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />

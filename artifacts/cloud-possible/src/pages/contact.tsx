@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -83,16 +83,11 @@ export default function Contact() {
             <div className="lg:col-span-3 space-y-12">
               
               {/* Contact Cards */}
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid gap-6">
                 <div className="bg-slate-50 p-6 rounded-2xl border border-border">
                   <Mail className="h-8 w-8 text-primary mb-4" />
                   <h3 className="font-bold text-foreground mb-1">Email Us</h3>
                   <a href="mailto:info@cloudpossible.ca" className="text-muted-foreground hover:text-primary transition-colors">info@cloudpossible.ca</a>
-                </div>
-                <div className="bg-slate-50 p-6 rounded-2xl border border-border">
-                  <Phone className="h-8 w-8 text-primary mb-4" />
-                  <h3 className="font-bold text-foreground mb-1">Call Us</h3>
-                  <a href="tel:15483840922" className="text-muted-foreground hover:text-primary transition-colors">1 (548) 384-0922</a>
                 </div>
               </div>
 

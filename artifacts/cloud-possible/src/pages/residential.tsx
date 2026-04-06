@@ -79,6 +79,27 @@ const steps = [
 export default function Residential() {
   useEffect(() => {
     document.title = "Residential IT Support | Cambridge, Waterloo, Brantford | Cloud Possible";
+
+    const desc = "Affordable flat-rate computer repair and IT help for homes in Cambridge, Waterloo, Brantford, Paris, and surrounding Ontario areas. Virus removal, WiFi setup, device repair and more. Starting at $59.";
+
+    const setMeta = (selector: string, attr: string, value: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr.split("=")[0], attr.split("=")[1] ?? attr);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    setMeta('meta[name="description"]', 'name=description', desc);
+    setMeta('meta[property="og:title"]', 'property=og:title', "Residential IT Support | Cambridge, Waterloo, Brantford | Cloud Possible");
+    setMeta('meta[property="og:description"]', 'property=og:description', desc);
+    setMeta('meta[property="og:url"]', 'property=og:url', "https://cloudpossible.ca/residential");
+
+    return () => {
+      setMeta('meta[name="description"]', 'name=description', "Cloud Possible provides managed IT support, cybersecurity, and cloud solutions for small businesses in Ontario. Flat-rate plans starting at $79/device/month. No long-term contracts.");
+    };
   }, []);
 
   return (

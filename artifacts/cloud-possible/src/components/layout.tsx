@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
+  { name: "Residential", href: "/residential" },
   { name: "Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
 ];
@@ -173,7 +174,7 @@ export function Layout({ children }: { children: ReactNode }) {
                   <span>
                     Ontario, Canada<br />
                     <span className="text-slate-500 text-xs leading-relaxed">
-                      Brampton · Mississauga · Caledon · Georgetown · Oakville · Milton · Kitchener · Guelph · Waterloo
+                      Brampton · Mississauga · Caledon · Georgetown · Oakville · Milton · Kitchener · Guelph · Waterloo · Cambridge · Brantford · Paris
                     </span>
                   </span>
                 </li>

@@ -73,29 +73,9 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right Col: Calendly & Service Area */}
+            {/* Right Col: Service Area */}
             <div className="lg:col-span-2 space-y-8">
-              
-              {/* Calendly */}
-              <div className="bg-slate-900 rounded-3xl p-8 text-white flex flex-col relative overflow-hidden shadow-2xl">
-                <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
-                
-                <h3 className="text-2xl font-bold mb-4">Schedule a Free IT Assessment</h3>
-                <p className="text-slate-300 mb-8">
-                  Pick a time that works for you. We'll do a 30-minute discovery call to learn about your current setup.
-                </p>
 
-                <div className="rounded-2xl overflow-hidden min-h-[500px]">
-                  <iframe
-                    src="https://calendly.com/jasongayle-8d-d/30min"
-                    width="100%"
-                    height="500"
-                    style={{ border: "none" }}
-                    title="Book a Free IT Assessment"
-                  />
-                </div>
-              </div>
-              
               {/* Service Area */}
               <div className="bg-slate-50 p-8 rounded-2xl border border-border flex items-start gap-4">
                 <MapPin className="h-6 w-6 text-primary shrink-0 mt-1" />

@@ -9,6 +9,7 @@ const services = [
     icon: Monitor,
     title: "Computer Tune-Up",
     price: "$69",
+    startingAt: false,
     desc: "Slow PC getting you down? We clear out junk files, disable startup bloat, update drivers, and get your computer running like new.",
     includes: ["Performance optimization", "Startup program cleanup", "Driver & OS updates", "Health report included"],
     color: "bg-blue-50 text-blue-600 border-blue-100"
@@ -17,6 +18,7 @@ const services = [
     icon: Shield,
     title: "Virus & Malware Removal",
     price: "$89",
+    startingAt: false,
     desc: "Suspicious pop-ups, slow browsing, or strange behaviour? We scan, remove, and secure your device so you can use it safely again.",
     includes: ["Full malware scan & removal", "Browser cleanup", "Security software install", "Prevention tips included"],
     color: "bg-red-50 text-red-600 border-red-100"
@@ -25,6 +27,7 @@ const services = [
     icon: Wrench,
     title: "New Device Setup",
     price: "$79",
+    startingAt: true,
     desc: "Got a new laptop or desktop? We set it up properly — accounts, security, apps, printer, and transfer your files from your old device.",
     includes: ["Account & profile setup", "Essential apps installed", "File transfer from old device", "Printer & peripherals connected"],
     color: "bg-green-50 text-green-600 border-green-100"
@@ -33,6 +36,7 @@ const services = [
     icon: Wifi,
     title: "WiFi Troubleshooting",
     price: "$69",
+    startingAt: true,
     desc: "Dropped connections, weak signal, or devices that won't connect? We diagnose your home network and get everything running reliably.",
     includes: ["Router & modem check", "Signal strength testing", "Device reconnection", "Security settings review"],
     color: "bg-sky-50 text-sky-600 border-sky-100"
@@ -41,6 +45,7 @@ const services = [
     icon: HardDrive,
     title: "Software Help",
     price: "$59",
+    startingAt: true,
     desc: "Need help installing software, setting up email, or figuring out a program? We'll walk through it with you remotely or in person.",
     includes: ["Software installation", "Email account setup", "App configuration", "Basic training included"],
     color: "bg-purple-50 text-purple-600 border-purple-100"
@@ -49,6 +54,7 @@ const services = [
     icon: Database,
     title: "Data Backup & Transfer",
     price: "$79",
+    startingAt: true,
     desc: "Don't lose your photos, documents, and memories. We set up reliable backups and safely move your files wherever you need them.",
     includes: ["External or cloud backup", "File organization", "Transfer to new device", "Recovery walkthrough"],
     color: "bg-amber-50 text-amber-600 border-amber-100"
@@ -60,19 +66,19 @@ const steps = [
     icon: Phone,
     step: "1",
     title: "Get in Touch",
-    desc: "Call or send us a message describing the issue. We'll give you an honest assessment and a flat price — no surprises."
+    desc: "Send us a message or give us a call. Tell us what's going on and we'll let you know the price before anything starts."
   },
   {
     icon: Clock,
     step: "2",
     title: "Remote Session or Visit",
-    desc: "Most issues are fixed remotely in under an hour. If we need to come to you, we'll schedule a convenient time."
+    desc: "We connect remotely and fix most problems in under an hour. If we need to come to you, we'll find a time that works."
   },
   {
     icon: DollarSign,
     step: "3",
     title: "Fixed Price, Done",
-    desc: "You pay the flat rate we quoted. No hourly billing, no hidden fees. Just a working computer and a clear explanation."
+    desc: "You pay what we said you'd pay. No hourly billing, no hidden charges. We'll walk you through what we did before we wrap up."
   }
 ];
 
@@ -174,8 +180,13 @@ export default function Residential() {
                     <service.icon className="h-7 w-7" />
                   </div>
                   <div className="text-right">
+                    {service.startingAt && (
+                      <p className="text-xs text-muted-foreground mb-0.5">Starting at</p>
+                    )}
                     <span className="text-3xl font-extrabold text-foreground">{service.price}</span>
-                    <p className="text-xs text-muted-foreground">flat rate</p>
+                    {!service.startingAt && (
+                      <p className="text-xs text-muted-foreground">flat rate</p>
+                    )}
                   </div>
                 </div>
                 <h4 className="text-xl font-bold text-foreground mb-2">{service.title}</h4>

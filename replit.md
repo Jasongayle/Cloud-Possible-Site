@@ -113,6 +113,33 @@ Standalone embeddable lead capture form. Designed to be iframed into the main si
 - Success screen shown after submission
 - Validation on every step before advancing
 
+#### Embedding the form in another site
+
+Copy-paste this snippet anywhere you want the form to appear:
+
+```html
+<iframe
+  id="cloud-possible-lead-form"
+  src="https://YOUR_DOMAIN/lead-form/"
+  width="100%"
+  height="640"
+  style="border: none; border-radius: 12px; display: block;"
+  title="Get IT Support — Cloud Possible">
+</iframe>
+
+<!-- Optional: auto-resize the iframe to fit its content -->
+<script>
+  window.addEventListener("message", function (e) {
+    if (e.data && e.data.type === "lead-form-resize") {
+      var frame = document.getElementById("cloud-possible-lead-form");
+      if (frame) frame.style.height = e.data.height + "px";
+    }
+  });
+</script>
+```
+
+Replace `YOUR_DOMAIN` with the deployed domain (e.g. `cloud-possible.replit.app`) or the Replit dev domain for local testing. The form broadcasts `{ type: "lead-form-resize", height: <px> }` messages to the parent window so no fixed height is required.
+
 ### `lib/db` leads table
 
 Schema: `lib/db/src/schema/leads.ts`

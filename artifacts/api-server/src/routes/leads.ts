@@ -21,6 +21,16 @@ const leadSchema = z.object({
   consent: z.string().min(1, "Consent is required"),
 });
 
+function escHtml(str: string | null | undefined): string {
+  if (str == null) return "—";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
 async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
   const apiKey = process.env["RESEND_API_KEY"];
   if (!apiKey) {
@@ -43,20 +53,20 @@ async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
         <table style="width: 100%; border-collapse: collapse;">
           <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600; width: 40%;">Lead #</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${leadId}</td></tr>
           <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Client Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${clientLabel}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Name</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.name}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Email</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Phone</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.phone}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Name</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.name)}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Email</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><a href="mailto:${escHtml(lead.email)}">${escHtml(lead.email)}</a></td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Phone</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.phone)}</td></tr>
           <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Urgency</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${urgencyLabel}</td></tr>
           ${lead.clientType === "business" ? `
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Company</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.companyName ?? "—"}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Company</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.companyName)}</td></tr>
           <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Employees</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.numEmployees ?? "—"}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Current Setup</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.currentSetup ?? "—"}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Main Problem</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.mainProblem ?? "—"}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Current Setup</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.currentSetup)}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Main Problem</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.mainProblem)}</td></tr>
           ` : `
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Device Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.deviceType ?? "—"}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Issue Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.issueType ?? "—"}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Device Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.deviceType)}</td></tr>
+          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Issue Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.issueType)}</td></tr>
           `}
-          ${lead.description ? `<tr><td style="padding: 8px 0; font-weight: 600; vertical-align: top;">Description</td><td style="padding: 8px 0;">${lead.description}</td></tr>` : ""}
+          ${lead.description ? `<tr><td style="padding: 8px 0; font-weight: 600; vertical-align: top;">Description</td><td style="padding: 8px 0;">${escHtml(lead.description)}</td></tr>` : ""}
         </table>
       </div>
     </div>
@@ -68,7 +78,7 @@ async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
         <h1 style="color: white; margin: 0; font-size: 20px;">We've Received Your Request</h1>
       </div>
       <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px;">
-        <p>Hi ${lead.name},</p>
+        <p>Hi ${escHtml(lead.name)},</p>
         <p>Thanks for reaching out to Cloud Possible. We've received your IT support request and will get back to you shortly.</p>
         <div style="background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 16px; margin: 20px 0; border-radius: 4px;">
           <p style="margin: 0; font-weight: 600;">What happens next?</p>

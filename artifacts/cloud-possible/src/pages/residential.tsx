@@ -98,7 +98,11 @@ export default function Residential() {
     setMeta('meta[property="og:url"]', 'property=og:url', "https://cloudpossible.ca/residential");
 
     return () => {
+      document.title = "Cloud Possible | Managed IT Support for Ontario Small Businesses";
       setMeta('meta[name="description"]', 'name=description', "Cloud Possible provides managed IT support, cybersecurity, and cloud solutions for small businesses in Ontario. Flat-rate plans starting at $79/device/month. No long-term contracts.");
+      setMeta('meta[property="og:title"]', 'property=og:title', "Cloud Possible | Managed IT Support for Ontario Small Businesses");
+      setMeta('meta[property="og:description"]', 'property=og:description', "Flat-rate managed IT support, cybersecurity, and cloud solutions for small businesses across Ontario. Starting at $79/device/month. No long-term contracts.");
+      setMeta('meta[property="og:url"]', 'property=og:url', "https://cloudpossible.ca/");
     };
   }, []);
 

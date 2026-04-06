@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: leads
+    description: Lead capture operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /leads:
+    post:
+      operationId: submitLead
+      tags: [leads]
+      summary: Submit a lead
+      description: Captures a new IT support lead and sends email notifications
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitLeadBody"
+      responses:
+        "201":
+          description: Lead submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SubmitLeadResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +66,74 @@ components:
           type: string
       required:
         - status
-
+    SubmitLeadBody:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 2
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+          minLength: 7
+        clientType:
+          type: string
+          enum: [residential, business]
+        companyName:
+          type: string
+          nullable: true
+        numEmployees:
+          type: integer
+          nullable: true
+        currentSetup:
+          type: string
+          nullable: true
+        deviceType:
+          type: string
+          nullable: true
+        issueType:
+          type: string
+          nullable: true
+        mainProblem:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        urgency:
+          type: string
+          enum: [low, medium, high]
+        consent:
+          type: string
+      required:
+        - name
+        - email
+        - phone
+        - clientType
+        - urgency
+        - consent
+    SubmitLeadResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        id:
+          type: integer
+      required:
+        - success
+        - message
+        - id
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        details:
+          type: string
+          nullable: true
+      required:
+        - error

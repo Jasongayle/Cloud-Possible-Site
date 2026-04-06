@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/lead-form/"
+title = "IT Support Lead Form"
+version = "1.0.0"
+id = "artifacts/lead-form"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/lead-form/" ]
+localPort = 18164
+
+[services.development]
+run = "pnpm --filter @workspace/lead-form run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/lead-form", "run", "build" ]
+publicDir = "artifacts/lead-form/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18164"
+BASE_PATH = "/lead-form/"

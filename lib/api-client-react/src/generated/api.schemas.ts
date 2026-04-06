@@ -8,3 +8,49 @@
 export interface HealthStatus {
   status: string;
 }
+
+export type SubmitLeadBodyClientType =
+  (typeof SubmitLeadBodyClientType)[keyof typeof SubmitLeadBodyClientType];
+
+export const SubmitLeadBodyClientType = {
+  residential: "residential",
+  business: "business",
+} as const;
+
+export type SubmitLeadBodyUrgency =
+  (typeof SubmitLeadBodyUrgency)[keyof typeof SubmitLeadBodyUrgency];
+
+export const SubmitLeadBodyUrgency = {
+  low: "low",
+  medium: "medium",
+  high: "high",
+} as const;
+
+export interface SubmitLeadBody {
+  /** @minLength 2 */
+  name: string;
+  email: string;
+  /** @minLength 7 */
+  phone: string;
+  clientType: SubmitLeadBodyClientType;
+  companyName?: string | null;
+  numEmployees?: number | null;
+  currentSetup?: string | null;
+  deviceType?: string | null;
+  issueType?: string | null;
+  mainProblem?: string | null;
+  description?: string | null;
+  urgency: SubmitLeadBodyUrgency;
+  consent: string;
+}
+
+export interface SubmitLeadResponse {
+  success: boolean;
+  message: string;
+  id: number;
+}
+
+export interface ErrorResponse {
+  error: string;
+  details?: string | null;
+}

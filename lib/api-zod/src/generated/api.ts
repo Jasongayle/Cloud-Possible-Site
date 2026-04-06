@@ -14,3 +14,27 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Captures a new IT support lead and sends email notifications
+ * @summary Submit a lead
+ */
+export const submitLeadBodyNameMin = 2;
+
+export const submitLeadBodyPhoneMin = 7;
+
+export const SubmitLeadBody = zod.object({
+  name: zod.string().min(submitLeadBodyNameMin),
+  email: zod.string().email(),
+  phone: zod.string().min(submitLeadBodyPhoneMin),
+  clientType: zod.enum(["residential", "business"]),
+  companyName: zod.string().nullish(),
+  numEmployees: zod.number().nullish(),
+  currentSetup: zod.string().nullish(),
+  deviceType: zod.string().nullish(),
+  issueType: zod.string().nullish(),
+  mainProblem: zod.string().nullish(),
+  description: zod.string().nullish(),
+  urgency: zod.enum(["low", "medium", "high"]),
+  consent: zod.string(),
+});

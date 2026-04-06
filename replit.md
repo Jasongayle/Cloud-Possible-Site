@@ -91,6 +91,40 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
 
+### `artifacts/cloud-possible` (`@workspace/cloud-possible`)
+
+Marketing website for Cloud Possible (Think Jay Inc, Ontario). 6-page React+Vite+Tailwind site targeting small businesses (10–50 employees) with managed IT support. Sky-blue/white design.
+
+- Pages: Home, Services, Residential, Pricing, Contact, Privacy, Terms
+- Contact: info@cloudpossible.ca | Calendly: https://calendly.com/jasongayle-8d-d/30min
+- Formspree ID: xwvrzqqd (used on contact form)
+- LinkedIn: https://www.linkedin.com/company/cloud-possible
+- Pricing: Starter $79/mo, Growth $149/mo, Business $299/device/mo
+- Service cities: Brampton, Mississauga, Caledon, Georgetown, Oakville, Milton, Kitchener, Guelph, Waterloo, Cambridge, Brantford, Paris
+- No phone number on site (email + Calendly only)
+
+### `artifacts/lead-form` (`@workspace/lead-form`)
+
+Standalone embeddable lead capture form. Designed to be iframed into the main site. Sky-blue palette.
+
+- 5-step form: client type → contact info → dynamic fields (residential/business) → urgency → consent + submit
+- Submits to `POST /api/leads` on the api-server
+- Uses `postMessage` to notify parent window of height changes for auto-resize in iframes
+- Success screen shown after submission
+- Validation on every step before advancing
+
+### `lib/db` leads table
+
+Schema: `lib/db/src/schema/leads.ts`
+Fields: id, name, email, phone, clientType (residential/business), deviceType, companyName, employeeCount, issueType, urgency, consent, createdAt
+
+### `artifacts/api-server` leads route
+
+Route: `artifacts/api-server/src/routes/leads.ts`
+- Validates with Zod, inserts to DB, sends admin + user confirmation emails via Resend
+- Resend emails skipped gracefully if RESEND_API_KEY not set
+- Admin email goes to info@cloudpossible.ca
+
 ### `scripts` (`@workspace/scripts`)
 
 Utility scripts package. Each script is a `.ts` file in `src/` with a corresponding npm script in `package.json`. Run scripts via `pnpm --filter @workspace/scripts run <script>`. Scripts can import any workspace package (e.g., `@workspace/db`) by adding it as a dependency in `scripts/package.json`.

@@ -130,7 +130,7 @@ Copy-paste this snippet anywhere you want the form to appear:
 <!-- Optional: auto-resize the iframe to fit its content -->
 <script>
   window.addEventListener("message", function (e) {
-    if (e.data && e.data.type === "lead-form-resize") {
+    if (e.data && e.data.type === "replco:resize") {
       var frame = document.getElementById("cloud-possible-lead-form");
       if (frame) frame.style.height = e.data.height + "px";
     }
@@ -138,12 +138,20 @@ Copy-paste this snippet anywhere you want the form to appear:
 </script>
 ```
 
-Replace `YOUR_DOMAIN` with the deployed domain (e.g. `cloud-possible.replit.app`) or the Replit dev domain for local testing. The form broadcasts `{ type: "lead-form-resize", height: <px> }` messages to the parent window so no fixed height is required.
+Replace `YOUR_DOMAIN` with the deployed domain (e.g. `cloud-possible.replit.app`) or the Replit dev domain for local testing. The form broadcasts `{ type: "replco:resize", height: <px> }` messages to the parent window so no fixed height is required.
 
 ### `lib/db` leads table
 
 Schema: `lib/db/src/schema/leads.ts`
-Fields: id, name, email, phone, clientType (residential/business), deviceType, companyName, employeeCount, issueType, urgency, consent, createdAt
+Fields:
+- `id` (serial PK)
+- `name`, `email`, `phone` (required)
+- `clientType` — "residential" | "business" (required)
+- `companyName`, `numEmployees` (integer), `currentSetup` — business only, nullable
+- `deviceType`, `issueType`, `mainProblem`, `description` — optional, nullable
+- `urgency` — "low" | "medium" | "high" (required)
+- `consent` (required)
+- `createdAt` (auto timestamp)
 
 ### `artifacts/api-server` leads route
 

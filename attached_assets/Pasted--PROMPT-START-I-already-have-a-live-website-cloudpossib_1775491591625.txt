@@ -1,0 +1,118 @@
+🧠 PROMPT START
+
+I already have a live website (cloudpossible.ca).
+DO NOT rebuild the site.
+
+I need a standalone embedded lead capture system that I can plug into my existing website.
+
+🔷 OBJECTIVE
+
+Build a self-contained lead form app that:
+
+Runs independently (on Replit)
+Can be embedded into any website via iframe
+Handles residential and business IT support requests
+Stores leads in a database
+Sends email notifications
+🔷 TECH STACK
+Frontend: React + Tailwind (clean UI)
+Backend: Node.js + Express
+Database: Supabase
+Email: Resend API
+Must be deployable as a public URL
+🔷 CRITICAL REQUIREMENT
+
+The app MUST:
+
+Work inside an iframe
+Be responsive (mobile + desktop)
+Have no navigation or header (just the form)
+Load fast and clean
+🔷 FORM DESIGN
+Step 1 — Client Type
+
+Radio:
+
+Residential
+Business
+Step 2 — Contact Info
+Full Name (required)
+Email (required)
+Phone (required)
+Step 3 — Dynamic Fields
+Residential:
+Device Type
+Issue Type
+Description
+Business:
+Company Name
+Number of Employees
+Current Setup
+Main Problem
+Description
+Step 4 — Urgency
+Low / Medium / High
+Step 5 — Consent Checkbox
+Submit Button:
+
+"Get IT Help Now"
+
+🔷 UX REQUIREMENTS
+Clean card layout
+Centered form
+No scrolling issues inside iframe
+Loading spinner on submit
+Success message after submit
+🔷 BACKEND
+
+Create API:
+
+POST /api/lead
+
+Function:
+
+Validate input
+Store in Supabase
+Send email to admin
+Send confirmation email to user
+🔷 DATABASE (SUPABASE)
+
+Table: leads
+
+Include:
+
+name
+email
+phone
+client_type
+description
+urgency
+created_at
+🔷 EMAILS
+Admin Email:
+
+Subject: New Lead – Cloud Possible
+
+Customer Email:
+
+Subject: We’ve Received Your Request
+
+🔷 EMBED SUPPORT
+
+At the end, output:
+
+1. Public URL of the app
+2. iframe embed code like this:
+<iframe 
+  src="https://your-replit-app-url" 
+  width="100%" 
+  height="700px" 
+  style="border:none;">
+</iframe>
+🔷 BONUS
+Auto-resize iframe height
+Prevent spam (basic validation)
+Fast load time
+🔷 FINAL GOAL
+
+This should act as a plug-and-play lead capture system for my existing website.

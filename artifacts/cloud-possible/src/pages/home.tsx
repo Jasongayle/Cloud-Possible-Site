@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Shield, Server, Cloud, ChevronRight, Award, MapPin, Clock, Quote, Users, Zap, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Shield, Server, Cloud, ChevronRight, Award, MapPin, Clock, Quote, Users, Zap, Star, Bot, Lock, Lightbulb } from "lucide-react";
 import { Layout } from "@/components/layout";
 
 export default function Home() {
@@ -125,25 +125,35 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: Server,
                 title: "Managed IT Support",
-                desc: "Proactive monitoring and unlimited remote helpdesk to keep your team productive. Most issues resolved the same day, without anyone needing to come in.",
-                color: "bg-blue-50 text-blue-600 border-blue-100"
+                desc: "Proactive monitoring and unlimited remote helpdesk to keep your team productive. Most issues resolved the same day.",
+                color: "bg-blue-50 text-blue-600 border-blue-100",
+                href: "/services"
               },
               {
                 icon: Cloud,
                 title: "Cloud & Backup",
                 desc: "Seamless Microsoft 365/Azure migrations, scalable cloud infrastructure, and automated disaster recovery.",
-                color: "bg-indigo-50 text-indigo-600 border-indigo-100"
+                color: "bg-indigo-50 text-indigo-600 border-indigo-100",
+                href: "/services"
               },
               {
                 icon: Shield,
                 title: "Security & Protection",
                 desc: "Enterprise-grade endpoint security, dark web monitoring, phishing training, and compliance management.",
-                color: "bg-sky-50 text-sky-600 border-sky-100"
+                color: "bg-sky-50 text-sky-600 border-sky-100",
+                href: "/services"
+              },
+              {
+                icon: Bot,
+                title: "AI Configuration & Enablement",
+                desc: "We help small businesses choose, configure, and govern AI tools like Microsoft Copilot and ChatGPT Business so teams can work faster without creating unnecessary data or security risk.",
+                color: "bg-violet-50 text-violet-600 border-violet-100",
+                href: "/ai"
               }
             ].map((service, i) => (
               <motion.div
@@ -161,7 +171,7 @@ export default function Home() {
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {service.desc}
                 </p>
-                <Link href="/services" className="inline-flex items-center text-primary font-semibold hover:text-blue-700 transition-colors">
+                <Link href={service.href} className="inline-flex items-center text-primary font-semibold hover:text-blue-700 transition-colors">
                   Learn more <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
@@ -236,6 +246,69 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Section */}
+      <section className="py-24 bg-slate-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none -ml-40 -mt-40" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none -mr-20 -mb-20" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center rounded-full border border-violet-400/30 bg-violet-400/10 px-3 py-1 text-sm font-medium text-violet-300 mb-6">
+              <Bot className="h-4 w-4 mr-2" /> New Service
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Bring AI into your business the right way
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              AI tools can help small businesses save time, improve writing, summarize information, support research, and speed up daily work. Cloud Possible helps you choose the right business AI tools, configure access and administration, and roll them out with practical guardrails for your team.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              {
+                icon: Lightbulb,
+                title: "Choose the right AI platform",
+                desc: "We assess your business needs and recommend whether Microsoft Copilot, ChatGPT Business, or another tool is the right fit — without vendor bias."
+              },
+              {
+                icon: Lock,
+                title: "Configure securely",
+                desc: "Proper AI setup means controlling what data the tools can access, who has access, and how usage is logged. We handle the administration so your business stays protected."
+              },
+              {
+                icon: Users,
+                title: "Make AI useful",
+                desc: "Tools don't help if your team doesn't use them well. We provide practical prompts, workflows, and guidance that fit your actual day-to-day work."
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center mb-5">
+                  <card.icon className="h-6 w-6 text-violet-300" />
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3">{card.title}</h4>
+                <p className="text-slate-400 leading-relaxed">{card.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/ai"
+              className="inline-flex items-center justify-center rounded-xl bg-violet-600 text-white font-semibold px-8 py-4 shadow-lg hover:bg-violet-700 hover:-translate-y-0.5 transition-all duration-200"
+            >
+              Learn about AI Configuration <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>

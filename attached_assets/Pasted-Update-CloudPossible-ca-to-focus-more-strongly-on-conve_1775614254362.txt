@@ -1,0 +1,126 @@
+Update CloudPossible.ca to focus more strongly on converting Ontario small business visitors into leads for managed IT services.
+
+Keep the brand name Cloud Possible and keep the overall business direction, but rewrite the homepage with a stronger SMB sales structure.
+
+GOALS:
+- Position Cloud Possible as an outsourced IT partner for Ontario small businesses
+- Make Microsoft 365, cybersecurity, backup/recovery, and managed IT support clearly visible
+- Add a strong primary CTA for business leads
+- Separate business positioning from residential support
+- Improve trust, clarity, and conversions
+
+HOMEPAGE STRUCTURE TO IMPLEMENT:
+
+1. HERO
+Headline:
+Managed IT, Microsoft 365 & Cybersecurity for Ontario Small Businesses
+
+Subheadline:
+Cloud Possible helps small businesses reduce downtime, secure devices and data, and get reliable IT support without the cost of a full internal IT department.
+
+Primary CTA button:
+Book a Free 15-Minute IT Review
+
+Secondary CTA button:
+See Managed IT Plans
+
+Trust line:
+Local Ontario support • Microsoft 365 expertise • Security-first approach • Remote and on-site service
+
+2. PROBLEM SECTION
+Title:
+Is your business losing time to tech issues?
+
+Text:
+Most small businesses do not need a full internal IT department — but they do need reliable support, better security, and a clear plan for Microsoft 365, devices, backups, and day-to-day technology.
+
+Cards:
+- Slow support and recurring issues that interrupt staff
+- Microsoft 365 and user access managed reactively
+- Limited visibility into backups, device health, and security risks
+
+3. SERVICES SECTION
+Title:
+What Cloud Possible handles for your business
+
+Cards:
+- Managed IT Support
+- Microsoft 365 Administration
+- Cybersecurity & Endpoint Protection
+- Backup & Recovery Oversight
+- Cloud & IT Projects
+- Fractional IT Management
+
+Each card should have a short 1–2 sentence description.
+
+4. WHY CHOOSE US
+Title:
+Why small businesses choose Cloud Possible
+
+Bullets:
+- Support built for Ontario small businesses
+- Plain-English communication
+- Security-first mindset
+- Microsoft 365 and cloud experience
+- Clear priorities and next steps
+- Remote and on-site service options
+
+5. PLANS SECTION
+Title:
+Simple support plans for growing businesses
+
+Plans:
+- Essential
+- Secure
+- vIT Manager
+
+Add a “Request a Custom Quote” CTA.
+
+6. PROCESS SECTION
+Title:
+How it works
+
+Steps:
+- Book a free 15-minute call
+- We review your current setup and priorities
+- You receive practical recommendations
+- We onboard and support your business
+
+7. TRUST SECTION
+Title:
+A better way to manage small business IT
+
+Include short business-focused copy and placeholders for testimonials/reviews.
+
+8. CTA SECTION
+Title:
+Free Small Business IT Review
+
+Text:
+Book a free 15-minute call to discuss your current IT setup, support gaps, Microsoft 365 questions, and security concerns.
+
+Button:
+Book Your Free Review
+
+9. FAQ SECTION
+Add FAQs for:
+- businesses without internal IT staff
+- remote and on-site support
+- Microsoft 365 support
+- cybersecurity and backups
+- one-time projects vs monthly support
+
+10. FOOTER CTA
+Headline:
+Need a more reliable IT partner for your business?
+
+Buttons:
+- Book a Free 15-Minute IT Review
+- Contact Cloud Possible
+
+OTHER REQUIREMENTS:
+- Keep the design clean, modern, and professional
+- Make the homepage clearly business-first
+- Add a separate Residential page in navigation instead of mixing business and home services equally on the homepage
+- Keep the copy easy for non-technical business owners to understand
+- Make sure all CTA buttons go to the correct contact/booking flow

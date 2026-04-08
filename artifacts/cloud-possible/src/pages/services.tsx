@@ -109,7 +109,7 @@ export default function Services() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-slate-900 py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-slate-900 py-14 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.04] pointer-events-none" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl pointer-events-none -mr-60 -mt-40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
@@ -152,7 +152,7 @@ export default function Services() {
       </section>
 
       {/* Business Services */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">Core Business Services</h2>
@@ -198,7 +198,7 @@ export default function Services() {
       </section>
 
       {/* Residential Divider */}
-      <section className="py-20 bg-slate-50 border-t border-border">
+      <section className="py-12 md:py-20 bg-slate-50 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-muted-foreground font-semibold tracking-wide uppercase text-sm mb-3">Also Available</h2>
@@ -236,7 +236,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-900 text-center relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-slate-900 text-center relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 relative">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Not sure where to start?</h2>

@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-40 overflow-hidden">
+      <section className="relative pt-14 pb-16 lg:pt-32 lg:pb-40 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
         <div className="absolute top-0 right-0 -mr-40 -mt-40 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
         
@@ -53,7 +53,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Starting at <span className="font-semibold text-foreground">$79/device/mo</span> &middot; No long-term contracts
+                Starting at <span className="font-semibold text-foreground">$85/user/mo</span> &middot; No long-term contracts
               </p>
             </motion.div>
 
@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-slate-50 relative">
+      <section className="py-12 md:py-24 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">What We Do</h2>
@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-primary font-semibold tracking-wide uppercase text-sm mb-3">Client Stories</h2>
@@ -251,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* AI Section */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
+      <section className="py-12 md:py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none -ml-40 -mt-40" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none -mr-20 -mb-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -314,7 +314,7 @@ export default function Home() {
       </section>
 
       {/* Why Cloud Possible */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -385,7 +385,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] mix-blend-overlay opacity-10 bg-cover bg-center"></div>
         

@@ -58,7 +58,7 @@ export default function Pricing() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-slate-50 pt-20 pb-16 border-b border-border relative overflow-hidden">
+      <section className="bg-slate-50 pt-12 md:pt-20 pb-10 md:pb-16 border-b border-border relative overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <motion.h1
@@ -92,7 +92,7 @@ export default function Pricing() {
       </section>
 
       {/* ── SECTION 1: Managed IT Plans ── */}
-      <section id="managed-it-plans" className="py-24 bg-white">
+      <section id="managed-it-plans" className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
@@ -238,7 +238,7 @@ export default function Pricing() {
       </section>
 
       {/* ── SECTION 2: One-Time Business Services ── */}
-      <section id="one-time-business-services" className="py-24 bg-slate-50 border-t border-border">
+      <section id="one-time-business-services" className="py-12 md:py-24 bg-slate-50 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 bg-slate-200 text-slate-700 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
@@ -301,7 +301,7 @@ export default function Pricing() {
       </section>
 
       {/* ── SECTION 3: AI Configuration ── */}
-      <section id="ai-configuration" className="py-24 bg-slate-900 relative overflow-hidden">
+      <section id="ai-configuration" className="py-12 md:py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-3xl pointer-events-none -ml-40 -mt-40" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -442,7 +442,7 @@ export default function Pricing() {
       </section>
 
       {/* ── SECTION 4: Residential Support ── */}
-      <section id="residential-support" className="py-24 bg-white border-t border-border">
+      <section id="residential-support" className="py-12 md:py-24 bg-white border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
@@ -498,7 +498,7 @@ export default function Pricing() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 bg-slate-50 border-t border-border">
+      <section className="py-12 md:py-24 bg-slate-50 border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-4">Common questions</h2>
@@ -513,7 +513,7 @@ export default function Pricing() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-slate-900 text-center relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-slate-900 text-center relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 relative">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Not sure which plan is right?</h2>

@@ -94,7 +94,7 @@ async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
     await Promise.all([
       resend.emails.send({
         from: "Cloud Possible <noreply@cloudpossible.ca>",
-        to: ["info@cloudpossible.ca"],
+        to: ["jasongayle@protonmail.com"],
         subject: `New Lead – Cloud Possible (#${leadId})`,
         html: adminHtml,
       }),

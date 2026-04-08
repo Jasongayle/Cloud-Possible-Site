@@ -91,23 +91,34 @@ async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
   `;
 
   try {
-    await Promise.all([
+    const [adminResult, userResult] = await Promise.all([
       resend.emails.send({
-        from: "Cloud Possible <noreply@cloudpossible.ca>",
-        to: ["jasongayle@protonmail.com"],
+        from: "Cloud Possible <onboarding@resend.dev>",
+        to: ["jasongayle@gmail.com"],
         subject: `New Lead – Cloud Possible (#${leadId})`,
         html: adminHtml,
       }),
       resend.emails.send({
-        from: "Cloud Possible <noreply@cloudpossible.ca>",
+        from: "Cloud Possible <onboarding@resend.dev>",
         to: [lead.email],
         subject: "We've Received Your Request – Cloud Possible",
         html: userHtml,
       }),
     ]);
-    logger.info({ leadId }, "Emails sent successfully");
+
+    if (adminResult.error) {
+      logger.error({ leadId, error: adminResult.error }, "Admin email failed");
+    } else {
+      logger.info({ leadId, id: adminResult.data?.id }, "Admin email sent");
+    }
+
+    if (userResult.error) {
+      logger.error({ leadId, error: userResult.error }, "Confirmation email failed");
+    } else {
+      logger.info({ leadId, id: userResult.data?.id }, "Confirmation email sent");
+    }
   } catch (err) {
-    logger.error({ err, leadId }, "Failed to send emails");
+    logger.error({ err, leadId }, "Email send threw an exception");
   }
 }
 

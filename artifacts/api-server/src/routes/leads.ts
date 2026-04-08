@@ -31,6 +31,27 @@ function escHtml(str: string | null | undefined): string {
     .replace(/'/g, "&#x27;");
 }
 
+const EMAIL_HEADER = `
+  <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); padding: 32px 40px; border-radius: 12px 12px 0 0; text-align: center;">
+    <div style="display: inline-block; background: #0ea5e9; border-radius: 10px; width: 42px; height: 42px; line-height: 42px; text-align: center; font-size: 22px; font-weight: 900; color: white; margin-bottom: 10px; font-family: Arial, sans-serif;">C</div>
+    <div style="font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 2px;">Cloud Possible</div>
+    <div style="font-family: Arial, sans-serif; font-size: 12px; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase;">Managed IT · Ontario</div>
+  </div>
+`;
+
+const EMAIL_FOOTER = `
+  <div style="background: #0f172a; padding: 24px 40px; border-radius: 0 0 12px 12px; text-align: center;">
+    <p style="font-family: Arial, sans-serif; font-size: 13px; color: #64748b; margin: 0 0 8px 0;">
+      <a href="mailto:info@cloudpossible.ca" style="color: #0ea5e9; text-decoration: none;">info@cloudpossible.ca</a>
+      &nbsp;·&nbsp;
+      <a href="https://cloudpossible.ca" style="color: #0ea5e9; text-decoration: none;">cloudpossible.ca</a>
+    </p>
+    <p style="font-family: Arial, sans-serif; font-size: 12px; color: #334155; margin: 0;">
+      © ${new Date().getFullYear()} Cloud Possible — a Think Jay Inc company · Ontario, Canada
+    </p>
+  </div>
+`;
+
 async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
   const apiKey = process.env["RESEND_API_KEY"];
   if (!apiKey) {
@@ -42,52 +63,111 @@ async function sendEmails(lead: z.infer<typeof leadSchema>, leadId: number) {
   const resend = new Resend(apiKey);
 
   const urgencyLabel = { low: "Low", medium: "Medium", high: "High" }[lead.urgency];
+  const urgencyColor = { low: "#10b981", medium: "#f59e0b", high: "#ef4444" }[lead.urgency];
   const clientLabel = lead.clientType === "business" ? "Business" : "Residential";
 
+  const row = (label: string, value: string) => `
+    <tr>
+      <td style="padding: 11px 16px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; width: 38%; border-bottom: 1px solid #1e293b;">${label}</td>
+      <td style="padding: 11px 16px; font-family: Arial, sans-serif; font-size: 14px; color: #e2e8f0; border-bottom: 1px solid #1e293b;">${value}</td>
+    </tr>
+  `;
+
   const adminHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a1a1a;">
-      <div style="background: #0ea5e9; padding: 20px; border-radius: 8px 8px 0 0;">
-        <h1 style="color: white; margin: 0; font-size: 20px;">New Lead – Cloud Possible</h1>
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+    <body style="margin: 0; padding: 20px; background: #060d1a; font-family: Arial, sans-serif;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        ${EMAIL_HEADER}
+
+        <div style="background: #0f172a; border: 1px solid #1e293b; border-top: none; padding: 28px 40px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #1e293b;">
+            <div>
+              <p style="margin: 0 0 4px 0; font-size: 11px; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">New Lead Submission</p>
+              <h2 style="margin: 0; font-size: 22px; color: #f1f5f9; font-weight: 700;">Lead #${leadId}</h2>
+            </div>
+            <div style="background: ${urgencyColor}22; border: 1px solid ${urgencyColor}55; border-radius: 20px; padding: 5px 14px;">
+              <span style="font-size: 12px; font-weight: 700; color: ${urgencyColor}; text-transform: uppercase; letter-spacing: 0.5px;">${urgencyLabel} Priority</span>
+            </div>
+          </div>
+
+          <table style="width: 100%; border-collapse: collapse; background: #0a1628; border-radius: 8px; overflow: hidden; border: 1px solid #1e293b;">
+            ${row("Type", clientLabel)}
+            ${row("Name", escHtml(lead.name))}
+            ${row("Email", `<a href="mailto:${escHtml(lead.email)}" style="color: #0ea5e9; text-decoration: none;">${escHtml(lead.email)}</a>`)}
+            ${row("Phone", `<a href="tel:${escHtml(lead.phone)}" style="color: #0ea5e9; text-decoration: none;">${escHtml(lead.phone)}</a>`)}
+            ${lead.clientType === "business" ? `
+              ${row("Company", escHtml(lead.companyName))}
+              ${row("Employees", String(lead.numEmployees ?? "—"))}
+              ${row("Current Setup", escHtml(lead.currentSetup))}
+              ${row("Main Problem", escHtml(lead.mainProblem))}
+            ` : `
+              ${row("Device Type", escHtml(lead.deviceType))}
+              ${row("Issue Type", escHtml(lead.issueType))}
+            `}
+            ${lead.description ? row("Description", escHtml(lead.description)) : ""}
+          </table>
+
+          <div style="margin-top: 24px; text-align: center;">
+            <a href="mailto:${escHtml(lead.email)}" style="display: inline-block; background: #0ea5e9; color: white; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 8px; letter-spacing: 0.3px;">Reply to ${escHtml(lead.name)}</a>
+          </div>
+        </div>
+
+        ${EMAIL_FOOTER}
       </div>
-      <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px;">
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600; width: 40%;">Lead #</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${leadId}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Client Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${clientLabel}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Name</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.name)}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Email</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;"><a href="mailto:${escHtml(lead.email)}">${escHtml(lead.email)}</a></td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Phone</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.phone)}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Urgency</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${urgencyLabel}</td></tr>
-          ${lead.clientType === "business" ? `
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Company</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.companyName)}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Employees</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${lead.numEmployees ?? "—"}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Current Setup</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.currentSetup)}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Main Problem</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.mainProblem)}</td></tr>
-          ` : `
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Device Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.deviceType)}</td></tr>
-          <tr><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0; font-weight: 600;">Issue Type</td><td style="padding: 8px 0; border-bottom: 1px solid #e2e8f0;">${escHtml(lead.issueType)}</td></tr>
-          `}
-          ${lead.description ? `<tr><td style="padding: 8px 0; font-weight: 600; vertical-align: top;">Description</td><td style="padding: 8px 0;">${escHtml(lead.description)}</td></tr>` : ""}
-        </table>
-      </div>
-    </div>
+    </body>
+    </html>
   `;
 
   const userHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a1a1a;">
-      <div style="background: #0ea5e9; padding: 20px; border-radius: 8px 8px 0 0;">
-        <h1 style="color: white; margin: 0; font-size: 20px;">We've Received Your Request</h1>
-      </div>
-      <div style="background: #f8fafc; padding: 24px; border: 1px solid #e2e8f0; border-top: none; border-radius: 0 0 8px 8px;">
-        <p>Hi ${escHtml(lead.name)},</p>
-        <p>Thanks for reaching out to Cloud Possible. We've received your IT support request and will get back to you shortly.</p>
-        <div style="background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 16px; margin: 20px 0; border-radius: 4px;">
-          <p style="margin: 0; font-weight: 600;">What happens next?</p>
-          <p style="margin: 8px 0 0 0;">Our team reviews every request and typically responds within 1 business hour during business hours (Mon–Fri, 9am–5pm ET).</p>
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+    <body style="margin: 0; padding: 20px; background: #060d1a; font-family: Arial, sans-serif;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        ${EMAIL_HEADER}
+
+        <div style="background: #0f172a; border: 1px solid #1e293b; border-top: none; padding: 36px 40px;">
+          <h2 style="margin: 0 0 8px 0; font-size: 24px; font-weight: 700; color: #f1f5f9;">We've received your request.</h2>
+          <p style="margin: 0 0 24px 0; font-size: 15px; color: #94a3b8; line-height: 1.6;">
+            Hi ${escHtml(lead.name)}, thanks for reaching out. We've logged your request and someone from our team will be in touch shortly.
+          </p>
+
+          <div style="background: #0a1628; border: 1px solid #1e293b; border-left: 4px solid #0ea5e9; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px;">
+            <p style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; color: #0ea5e9; text-transform: uppercase; letter-spacing: 0.5px;">What happens next</p>
+            <p style="margin: 0; font-size: 14px; color: #cbd5e1; line-height: 1.6;">Our team reviews every request and typically responds within <strong style="color: #f1f5f9;">1 business hour</strong> during business hours (Mon–Fri, 9am–5pm ET).</p>
+          </div>
+
+          <div style="background: #0a1628; border: 1px solid #1e293b; border-radius: 8px; padding: 20px 24px; margin-bottom: 28px;">
+            <p style="margin: 0 0 12px 0; font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">Your submission</p>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #64748b; width: 40%;">Reference #</td>
+                <td style="padding: 6px 0; font-size: 13px; color: #e2e8f0; font-weight: 600;">${leadId}</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #64748b;">Priority</td>
+                <td style="padding: 6px 0; font-size: 13px; color: ${urgencyColor}; font-weight: 600;">${urgencyLabel}</td>
+              </tr>
+              ${lead.clientType === "business" && lead.companyName ? `
+              <tr>
+                <td style="padding: 6px 0; font-size: 13px; color: #64748b;">Company</td>
+                <td style="padding: 6px 0; font-size: 13px; color: #e2e8f0;">${escHtml(lead.companyName)}</td>
+              </tr>` : ""}
+            </table>
+          </div>
+
+          <p style="margin: 0 0 6px 0; font-size: 14px; color: #94a3b8; line-height: 1.6;">
+            Need to reach us sooner? Email us at
+            <a href="mailto:info@cloudpossible.ca" style="color: #0ea5e9; text-decoration: none; font-weight: 600;">info@cloudpossible.ca</a>.
+          </p>
         </div>
-        <p>In the meantime, you can reach us directly at <a href="mailto:info@cloudpossible.ca" style="color: #0ea5e9;">info@cloudpossible.ca</a>.</p>
-        <p style="margin-top: 24px; color: #64748b; font-size: 14px;">— The Cloud Possible Team</p>
+
+        ${EMAIL_FOOTER}
       </div>
-    </div>
+    </body>
+    </html>
   `;
 
   try {

@@ -26,9 +26,18 @@ const CURRENT_SETUPS = ["No IT currently", "Self-managed", "Part-time IT person"
 const MAIN_PROBLEMS = ["Frequent downtime", "Cybersecurity concerns", "Slow systems", "Outdated equipment", "Need cloud migration", "Staff IT support", "Email/communication setup", "Other"];
 const EMPLOYEE_RANGES = ["1–5", "6–10", "11–25", "26–50", "51+"];
 
+let _lastPostedHeight = 0;
+let _postTimer: ReturnType<typeof setTimeout> | null = null;
+
 function postHeight() {
-  const height = document.body.scrollHeight;
-  window.parent?.postMessage({ type: "replco:resize", height }, "*");
+  if (_postTimer) clearTimeout(_postTimer);
+  _postTimer = setTimeout(() => {
+    const height = document.documentElement.scrollHeight;
+    if (Math.abs(height - _lastPostedHeight) > 2) {
+      _lastPostedHeight = height;
+      window.parent?.postMessage({ type: "replco:resize", height }, "*");
+    }
+  }, 50);
 }
 
 function StepIndicator({ current, total }: { current: number; total: number }) {
@@ -269,7 +278,7 @@ export default function App() {
 
   if (submitted) {
     return (
-      <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 to-sky-50 flex items-center justify-center p-4">
+      <div ref={containerRef} className="bg-gradient-to-br from-slate-50 to-sky-50 flex items-center justify-center p-4 py-8">
         <div className="w-full max-w-lg bg-white rounded-2xl shadow-sm border border-slate-100 p-8 text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 className="w-10 h-10 text-green-500" />
@@ -288,7 +297,7 @@ export default function App() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-50 to-sky-50 p-4 py-8">
+    <div ref={containerRef} className="bg-gradient-to-br from-slate-50 to-sky-50 p-4 py-8">
       <div className="w-full max-w-lg mx-auto">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 bg-sky-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-3">

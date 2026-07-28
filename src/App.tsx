@@ -11,6 +11,7 @@ import Privacy from "@/pages/privacy";
 import Terms from "@/pages/terms";
 import Residential from "@/pages/residential";
 import AI from "@/pages/ai";
+import Assessment from "@/pages/assessment";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
       <Route path="/ai" component={AI} />
+      <Route path="/assessment" component={Assessment} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/contact" component={Contact} />
       <Route path="/residential" component={Residential} />

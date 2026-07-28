@@ -440,6 +440,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured: M365 Security Audit */}
+      <section className="py-16 md:py-24 bg-white border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-3xl bg-slate-900 p-8 md:p-12 lg:p-14"
+          >
+            <div className="absolute -top-24 -right-16 w-80 h-80 rounded-full bg-primary/25 blur-3xl"></div>
+            <div className="absolute inset-0 bg-grid-pattern opacity-[0.06]"></div>
+
+            <div className="relative grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3 py-1 mb-5">
+                  <Shield className="h-3.5 w-3.5 text-sky-300" />
+                  <span className="text-xs font-semibold uppercase tracking-wider text-sky-200">Featured · Fixed-fee engagement</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight max-w-2xl">
+                  Microsoft 365 Security & Cyber-Insurance Readiness Audit
+                </h2>
+                <p className="mt-4 text-lg text-slate-300 max-w-2xl leading-relaxed">
+                  Renewing cyber insurance, or facing a customer security questionnaire? Get an independent, read-only
+                  review of your Microsoft 365 tenant — with the evidence your insurer and your customers actually ask for.
+                </p>
+                <p className="mt-5 font-mono text-sm text-slate-400">
+                  <b className="text-white">$4,500 CAD</b> &nbsp;/&nbsp; three days of work &nbsp;/&nbsp; report in ten business days
+                </p>
+                <div className="mt-7 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/assessment"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
+                  >
+                    Explore the M365 Security Audit <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <span className="text-sm text-slate-400">Independent of your current IT provider.</span>
+                </div>
+              </div>
+
+              <ul className="space-y-3">
+                {[
+                  "Security posture report — findings rated by severity",
+                  "Insurance & questionnaire control matrix, with evidence",
+                  "90-day remediation roadmap, prioritised and costed",
+                  "Read-only throughout — your users notice nothing",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3">
+                    <CheckCircle2 className="h-5 w-5 text-sky-300 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-200 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-12 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary"></div>

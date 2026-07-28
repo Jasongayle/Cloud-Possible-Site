@@ -18,6 +18,7 @@ const businessServices = [
 
 const navLinks = [
   { name: "Home", href: "/" },
+  { name: "M365 Security Audit", href: "/assessment" },
   { name: "AI Configuration", href: "/ai" },
   { name: "Residential", href: "/residential" },
   { name: "Pricing", href: "/pricing" },
@@ -27,6 +28,7 @@ const navLinks = [
 const mobileNavLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
+  { name: "M365 Security Audit", href: "/assessment" },
   { name: "AI Configuration", href: "/ai" },
   { name: "Residential", href: "/residential" },
   { name: "Pricing", href: "/pricing" },
@@ -140,7 +142,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-7">
+            <nav className="hidden md:flex items-center gap-4 lg:gap-6">
               <Link
                 href="/"
                 className={`text-sm font-medium transition-colors hover:text-primary ${location === "/" ? "text-primary" : "text-foreground/80"}`}
@@ -298,6 +300,9 @@ export function Layout({ children }: { children: ReactNode }) {
                 </li>
               </ul>
               <div className="mt-6 flex flex-col gap-3">
+                <Link href="/assessment" className="hover:text-primary transition-colors inline-flex items-center gap-2 text-sm">
+                  <ArrowRight className="h-3 w-3" /> M365 Security Audit
+                </Link>
                 <Link href="/pricing" className="hover:text-primary transition-colors inline-flex items-center gap-2 text-sm">
                   <ArrowRight className="h-3 w-3" /> Pricing
                 </Link>

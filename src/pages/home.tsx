@@ -63,12 +63,68 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50 aspect-[4/3]">
-                <img 
-                  src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop" 
-                  alt="IT Professionals working" 
-                  className="w-full h-full object-cover"
-                />
+              {/* Self-contained hero visual — a stylized IT-operations dashboard.
+                  No external image dependency. To use a real photo instead, replace
+                  this block with: <img src="/hero.jpg" alt="..." className="w-full h-full object-cover" />
+                  after adding the image to /public. */}
+              <div
+                role="img"
+                aria-label="Cloud Possible IT operations dashboard showing uptime, managed devices and threats blocked"
+                className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50 aspect-[4/3] bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900"
+              >
+                <div className="absolute inset-0 bg-grid-pattern opacity-[0.12]"></div>
+                <div className="absolute -top-20 -right-16 w-72 h-72 rounded-full bg-primary/40 blur-3xl"></div>
+                <div className="absolute -bottom-24 -left-10 w-72 h-72 rounded-full bg-sky-500/20 blur-3xl"></div>
+
+                <div className="relative h-full p-6 flex flex-col justify-between">
+                  {/* Window chrome */}
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-400/80"></span>
+                    <span className="w-3 h-3 rounded-full bg-yellow-400/80"></span>
+                    <span className="w-3 h-3 rounded-full bg-green-400/80"></span>
+                    <span className="ml-3 text-xs font-medium text-slate-300">Cloud Possible · Monitoring</span>
+                  </div>
+
+                  {/* Stat cards */}
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-xl bg-white/5 border border-white/10 p-3 backdrop-blur-sm">
+                      <Server className="h-4 w-4 text-sky-300 mb-2" />
+                      <p className="text-lg font-bold text-white leading-none">99.9%</p>
+                      <p className="text-[10px] text-slate-400 mt-1">Uptime</p>
+                    </div>
+                    <div className="rounded-xl bg-white/5 border border-white/10 p-3 backdrop-blur-sm">
+                      <Cloud className="h-4 w-4 text-sky-300 mb-2" />
+                      <p className="text-lg font-bold text-white leading-none">42</p>
+                      <p className="text-[10px] text-slate-400 mt-1">Devices managed</p>
+                    </div>
+                    <div className="rounded-xl bg-white/5 border border-white/10 p-3 backdrop-blur-sm">
+                      <Shield className="h-4 w-4 text-sky-300 mb-2" />
+                      <p className="text-lg font-bold text-white leading-none">128</p>
+                      <p className="text-[10px] text-slate-400 mt-1">Threats blocked</p>
+                    </div>
+                  </div>
+
+                  {/* Mock activity chart */}
+                  <div className="rounded-xl bg-white/5 border border-white/10 p-4 backdrop-blur-sm">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-xs font-medium text-slate-300">Network health</p>
+                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-300">
+                        <CheckCircle2 className="h-3 w-3" /> All systems operational
+                      </span>
+                    </div>
+                    <svg viewBox="0 0 320 64" className="w-full h-14" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="heroSpark" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="rgb(56 189 248)" stopOpacity="0.35" />
+                          <stop offset="100%" stopColor="rgb(56 189 248)" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0,48 L40,40 L80,44 L120,26 L160,32 L200,16 L240,22 L280,10 L320,18 L320,64 L0,64 Z" fill="url(#heroSpark)" />
+                      <path d="M0,48 L40,40 L80,44 L120,26 L160,32 L200,16 L240,22 L280,10 L320,18" fill="none" stroke="rgb(56 189 248)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
               </div>
               
@@ -387,7 +443,8 @@ export default function Home() {
       {/* Final CTA */}
       <section className="py-12 md:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-primary"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] mix-blend-overlay opacity-10 bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.15] mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_25%_15%,rgba(255,255,255,0.22),transparent_45%),radial-gradient(circle_at_85%_0%,rgba(255,255,255,0.14),transparent_40%)]"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to simplify your IT?</h2>

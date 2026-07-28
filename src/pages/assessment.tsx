@@ -253,9 +253,12 @@ export default function Assessment() {
                   <li key={li} className="text-sm text-foreground/80 py-2.5 leading-relaxed">{li}</li>
                 ))}
               </ul>
+              <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
+                Larger or multi-tenant environments are quoted on the call — no obligation.
+              </p>
               <a
                 href={BOOKING_URL} target="_blank" rel="noopener noreferrer"
-                className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
               >
                 Book 15 minutes <ArrowRight className="h-4 w-4" />
               </a>

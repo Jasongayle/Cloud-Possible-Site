@@ -82,7 +82,7 @@ export default function Pricing() {
             transition={{ delay: 0.2 }}
             className="flex flex-wrap gap-3 justify-center text-sm text-muted-foreground"
           >
-            {["Managed IT Plans", "One-Time Business Services", "AI Configuration", "Residential Support"].map((s, i) => (
+            {["Managed IT Plans", "Secure Foundation", "One-Time Business Services", "AI Configuration", "Residential Support"].map((s, i) => (
               <a key={i} href={`#${s.toLowerCase().replace(/[\s&]/g, "-").replace(/-+/g, "-")}`} className="bg-white border border-border rounded-full px-4 py-1.5 hover:border-primary hover:text-primary transition-colors">
                 {s}
               </a>
@@ -100,7 +100,7 @@ export default function Pricing() {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Monthly managed IT support</h2>
             <p className="text-lg text-muted-foreground">
-              All plans include helpdesk support, system monitoring, patch management, and Microsoft 365 administration. Billed per user per month.
+              All plans include helpdesk support, system monitoring, patch management, and Microsoft 365 administration. Billed per user per month in CAD, month-to-month, with a 5-user minimum.
             </p>
           </div>
 
@@ -114,7 +114,7 @@ export default function Pricing() {
               className="bg-white rounded-2xl p-8 border-2 border-border shadow-sm flex flex-col"
             >
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-foreground mb-1">Essential</h3>
+                <h3 className="text-xl font-bold text-foreground mb-1">Foundation</h3>
                 <p className="text-muted-foreground text-sm">Core IT support for businesses that need reliable, proactive management without complexity.</p>
               </div>
               <div className="mb-6 pb-6 border-b border-border">
@@ -122,7 +122,7 @@ export default function Pricing() {
                   <span className="text-xs text-muted-foreground">Starting at</span>
                 </div>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl font-extrabold text-foreground">$85</span>
+                  <span className="text-4xl font-extrabold text-foreground">$95</span>
                   <span className="text-muted-foreground">/user/month</span>
                 </div>
               </div>
@@ -158,21 +158,21 @@ export default function Pricing() {
                 Most Popular
               </div>
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-1">Secure</h3>
-                <p className="text-slate-400 text-sm">Everything in Essential plus advanced cybersecurity, backup oversight, and priority response.</p>
+                <h3 className="text-xl font-bold text-white mb-1">Managed IT</h3>
+                <p className="text-slate-400 text-sm">Everything in Foundation plus advanced cybersecurity, backup oversight, and priority response.</p>
               </div>
               <div className="mb-6 pb-6 border-b border-slate-700">
                 <div className="flex items-baseline gap-1">
                   <span className="text-xs text-slate-400">Starting at</span>
                 </div>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl font-extrabold text-white">$125</span>
+                  <span className="text-4xl font-extrabold text-white">$149</span>
                   <span className="text-slate-400">/user/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Everything in Essential",
+                  "Everything in Foundation",
                   "Next-gen EDR endpoint protection",
                   "Email phishing and spam filtering",
                   "Dark web credential monitoring",
@@ -201,27 +201,27 @@ export default function Pricing() {
               className="bg-white rounded-2xl p-8 border-2 border-border shadow-sm flex flex-col"
             >
               <div className="mb-6">
-                <h3 className="text-xl font-bold text-foreground mb-1">vIT Manager</h3>
-                <p className="text-muted-foreground text-sm">A dedicated fractional IT manager for businesses that want strategic leadership, not just helpdesk support.</p>
+                <h3 className="text-xl font-bold text-foreground mb-1">Secure Managed IT</h3>
+                <p className="text-muted-foreground text-sm">Everything in Managed IT plus hardened identity, advanced threat protection, and compliance-ready reporting.</p>
               </div>
               <div className="mb-6 pb-6 border-b border-border">
                 <div className="flex items-baseline gap-1">
                   <span className="text-xs text-muted-foreground">Starting at</span>
                 </div>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl font-extrabold text-foreground">$1,500</span>
-                  <span className="text-muted-foreground">/month</span>
+                  <span className="text-4xl font-extrabold text-foreground">$189</span>
+                  <span className="text-muted-foreground">/user/month</span>
                 </div>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Everything in Secure",
-                  "Named fractional IT manager",
-                  "Monthly leadership and planning sessions",
-                  "IT roadmap and budget guidance",
-                  "Vendor and contract negotiation",
-                  "Policy and procedure development",
-                  "On-site visits available"
+                  "Everything in Managed IT",
+                  "Microsoft Entra ID & Conditional Access hardening",
+                  "Advanced threat protection (Microsoft Defender)",
+                  "Security awareness & phishing simulation training",
+                  "Immutable backups with recovery testing",
+                  "Compliance & security posture reporting",
+                  "Annual security review"
                 ].map((f, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
                     <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
@@ -232,6 +232,80 @@ export default function Pricing() {
               <Link href="/contact" className="w-full py-3 px-4 rounded-xl border-2 border-border text-center font-semibold hover:border-primary hover:text-primary transition-colors">
                 Request a Custom Quote
               </Link>
+            </motion.div>
+          </div>
+
+          <div className="max-w-5xl mx-auto mt-10 space-y-2 text-center">
+            <p className="text-sm text-muted-foreground">Microsoft 365 licences, hardware, Azure usage, and major projects are billed separately.</p>
+            <p className="text-sm text-muted-foreground">Existing clients keep their current rate. New clients start on the plans above.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Microsoft 365 Secure Foundation ── */}
+      <section id="secure-foundation" className="py-12 md:py-24 bg-slate-900 border-t border-border relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 bg-primary/15 text-sky-300 border border-primary/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+              <Shield className="h-4 w-4" /> Fixed-Price Package
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Microsoft 365 Secure Foundation</h2>
+            <p className="text-lg text-slate-300">
+              A two-week security and setup package for businesses with 10–25 users. One fixed price, one clear outcome: a hardened, documented Microsoft 365 environment.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8 lg:gap-12 max-w-5xl mx-auto items-start">
+            {/* Price / CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-2xl p-8 border-l-4 border-primary"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Fixed price</p>
+              <div className="flex items-end gap-1.5">
+                <span className="text-5xl font-extrabold text-foreground tracking-tight leading-none">$1,950</span>
+                <span className="text-sm font-semibold text-muted-foreground mb-1">CAD</span>
+              </div>
+              <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                For businesses with <span className="font-semibold text-foreground">10–25 users</span>. Delivered in two weeks.
+              </p>
+              <div className="mt-5 rounded-xl bg-primary/5 border border-primary/20 p-4">
+                <p className="text-sm text-foreground leading-relaxed">
+                  Sign for a Managed IT plan within 30 days and the <span className="font-semibold">$1,950 is credited</span> against your first three months.
+                </p>
+              </div>
+              <Link href="/contact" className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-white py-3 px-6 font-semibold hover:bg-primary/90 transition-colors shadow-lg">
+                Book a Free Assessment <ArrowRight className="h-4 w-4" />
+              </Link>
+            </motion.div>
+
+            {/* Included items */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <p className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">What's included</p>
+              <ul className="space-y-3">
+                {[
+                  "Entra ID hardening",
+                  "Microsoft 365 security baseline",
+                  "Device baseline",
+                  "Backup check with one test restore",
+                  "Copilot and AI readiness, with a one-page AI use policy",
+                  "Written report with a 30-minute walkthrough",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/10 p-4">
+                    <CheckCircle2 className="h-5 w-5 text-sky-300 shrink-0 mt-0.5" />
+                    <span className="text-sm text-slate-100 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
         </div>

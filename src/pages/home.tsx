@@ -35,7 +35,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                We handle your cloud migrations, cybersecurity, and daily helpdesk support so you can focus on growing your business, not fixing tech issues.
+                Microsoft 365 and Azure, secured and managed for Ontario small businesses.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
@@ -53,7 +53,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Starting at <span className="font-semibold text-foreground">$85/user/mo</span> &middot; No long-term contracts
+                Plans from <span className="font-semibold text-foreground">$95/user/mo</span> &middot; No long-term contracts
               </p>
             </motion.div>
 
@@ -150,8 +150,8 @@ export default function Home() {
             {[
               { icon: Award, title: "20+ Years", sub: "Industry Experience" },
               { icon: Cloud, title: "Azure Certified", sub: "Microsoft Partners" },
-              { icon: MapPin, title: "Ontario-Based", sub: "Local Support Team" },
-              { icon: Clock, title: "24/7 Support", sub: "Always Monitoring" }
+              { icon: MapPin, title: "Ontario-Based", sub: "Run by a Microsoft-certified Azure specialist" },
+              { icon: Clock, title: "Proactive monitoring", sub: "Business-hours support · Same-day response" }
             ].map((stat, i) => (
               <motion.div 
                 key={i}
@@ -398,7 +398,7 @@ export default function Home() {
                 {
                   icon: MapPin,
                   title: "Local Ontario Team",
-                  desc: "We're based right here in Ontario. Most issues are fixed remotely the same day. On-site visits available when truly needed.",
+                  desc: "We're Ontario-based, run by a Microsoft-certified Azure specialist. Most issues are fixed remotely the same day, with on-site visits in Kitchener-Waterloo-Cambridge when truly needed.",
                   color: "bg-blue-50 text-blue-600"
                 },
                 {
@@ -416,7 +416,7 @@ export default function Home() {
                 {
                   icon: Zap,
                   title: "Proactive, Not Reactive",
-                  desc: "We monitor your systems 24/7 and fix problems before they affect your team or your customers.",
+                  desc: "We monitor your systems around the clock and fix problems before they affect your team — with human support Monday–Friday, 8am–6pm ET, and same-day response for most issues.",
                   color: "bg-amber-50 text-amber-600"
                 }
               ].map((item, i) => (

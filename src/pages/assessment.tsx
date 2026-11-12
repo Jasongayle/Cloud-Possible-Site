@@ -163,6 +163,11 @@ export default function Assessment() {
             </a>
             <span className="text-sm text-muted-foreground">No pitch deck. I'll tell you on the call whether it's worth doing.</span>
           </div>
+
+          <p className="mt-6 text-sm text-muted-foreground max-w-2xl">
+            This is an independent, read-only audit — evidence, not implementation. If you'd rather we did the hardening and setup, see the{" "}
+            <Link href="/pricing" className="text-primary font-medium hover:text-blue-700">Secure Foundation package</Link>.
+          </p>
         </div>
       </section>
 

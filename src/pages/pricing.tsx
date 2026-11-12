@@ -254,6 +254,10 @@ export default function Pricing() {
             <p className="text-lg text-slate-300">
               A two-week security and setup package for businesses with 10–25 users. One fixed price, one clear outcome: a hardened, documented Microsoft 365 environment.
             </p>
+            <p className="mt-4 text-sm text-slate-400 max-w-2xl mx-auto">
+              This is the hands-on package — we do the hardening and setup. Need independent audit evidence for an insurer or a customer's security questionnaire instead? That's the{" "}
+              <Link href="/assessment" className="text-sky-300 underline underline-offset-2 hover:text-sky-200">Microsoft 365 Security Audit</Link>.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-[1fr_1.3fr] gap-8 lg:gap-12 max-w-5xl mx-auto items-start">
@@ -324,19 +328,13 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
                 title: "IT & Security Snapshot",
                 price: "$499",
                 desc: "A focused assessment of your current IT environment — devices, accounts, security posture, and backup status. You receive a written report with prioritized recommendations.",
                 cta: "Book an IT Review"
-              },
-              {
-                title: "Microsoft 365 Review & Cleanup",
-                price: "$750",
-                desc: "We audit your Microsoft 365 tenant — licenses, user accounts, security settings, and email configuration — and fix what's out of order. Common savings: unused licenses and misconfigured security defaults.",
-                cta: "Book a Review"
               },
               {
                 title: "Backup & Recovery Review",

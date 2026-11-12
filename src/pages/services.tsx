@@ -74,19 +74,6 @@ const businessServices = [
     color: "bg-cyan-50 text-cyan-600 border-cyan-100"
   },
   {
-    icon: Users,
-    title: "Fractional IT Manager",
-    description: "A dedicated IT lead for your business without hiring a full-time employee. We attend your leadership meetings, manage your technology roadmap, and handle vendor relationships on your behalf.",
-    bullets: [
-      "Monthly leadership check-ins",
-      "IT roadmap and budget planning",
-      "Vendor negotiation and oversight",
-      "Policy and procedure development",
-      "Strategic technology guidance"
-    ],
-    color: "bg-violet-50 text-violet-600 border-violet-100"
-  },
-  {
     icon: Bot,
     title: "AI Configuration & Enablement",
     description: "We help small businesses choose, configure, and govern AI tools like Microsoft Copilot and ChatGPT Business so teams can work faster without creating unnecessary data or security risk.",

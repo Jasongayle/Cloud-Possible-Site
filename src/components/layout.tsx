@@ -12,7 +12,6 @@ const businessServices = [
   { name: "Cybersecurity & Endpoint Protection", href: "/services", icon: Shield },
   { name: "Backup & Recovery Oversight", href: "/services", icon: BarChart2 },
   { name: "Cloud & IT Projects", href: "/services", icon: Cloud },
-  { name: "Fractional IT Manager", href: "/services", icon: Users },
   { name: "AI Configuration & Enablement", href: "/ai", icon: Bot },
 ];
 
